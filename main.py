@@ -1,0 +1,10 @@
+def on_overlap_tile2(sprite, location):
+    game.game_over(True)
+scene.on_overlap_tile(SpriteKind.player,assets.image("""win"""), on_overlap_tile2)
+scene.set_background_image(assets.image("""Campo"""))
+tiles.set_current_tilemap(tilemap("""nivel1"""))
+pez = sprites.create(assets.image("""pez"""), SpriteKind.player)
+controller.move_sprite(pez)
+pez.set_scale(0.8, ScaleAnchor.MIDDLE)
+tiles.place_on_tile(pez, tiles.get_tile_location(0, 1))
+scene.camera_follow_sprite(pez)

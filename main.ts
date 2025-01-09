@@ -1,0 +1,10 @@
+scene.onOverlapTile(SpriteKind.Player, assets.image`win`, function on_overlap_tile2(sprite: Sprite, location: tiles.Location) {
+    game.gameOver(true)
+})
+scene.setBackgroundImage(assets.image`Campo`)
+tiles.setCurrentTilemap(tilemap`nivel1`)
+let pez = sprites.create(assets.image`pez`, SpriteKind.Player)
+controller.moveSprite(pez)
+pez.setScale(0.8, ScaleAnchor.Middle)
+tiles.placeOnTile(pez, tiles.getTileLocation(0, 1))
+scene.cameraFollowSprite(pez)
